@@ -1,0 +1,13 @@
+configuration {
+    modi: "drun,run,window";
+    show-icons: false;
+    display-drun: "app";
+    display-run: "run";
+    display-window: "win";
+    drun-display-format: "{name}";
+    window-format: "{w}{t}";
+    icon-theme: "Adwaita";
+    font: "JetBrainsMono Nerd Font 11";
+}
+
+@theme "theme.rasi"

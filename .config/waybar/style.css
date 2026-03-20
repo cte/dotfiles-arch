@@ -1,0 +1,103 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "OverpassM Nerd Font Mono";
+  font-size: 12px;
+  min-height: 0;
+}
+
+window#waybar {
+  background: transparent;
+  color: #e1e9df;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+  margin: 0;
+}
+
+#workspaces,
+#clock,
+#group-system,
+#network,
+#pulseaudio,
+#battery,
+#tray,
+#custom-logout,
+#custom-power {
+  background: rgba(0, 0, 0, 0.26);
+  color: #d9e2d7;
+  border-radius: 10px;
+  padding: 0 10px;
+  margin: 0 3px;
+}
+
+#group-system {
+  padding: 0 6px;
+}
+
+#group-system #network,
+#group-system #pulseaudio,
+#group-system #custom-logout,
+#group-system #custom-power,
+#group-system #tray {
+  background: transparent;
+  border-radius: 8px;
+  min-width: 72px;
+  padding: 0 12px;
+  margin: 0 2px;
+}
+
+#group-system #network,
+#group-system #pulseaudio,
+#group-system #tray,
+#battery,
+#custom-power {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#battery,
+#custom-power {
+  min-width: 72px;
+}
+
+#workspaces {
+  padding: 0 4px;
+}
+
+#workspaces button {
+  color: #8f9d92;
+  padding: 0 8px;
+  margin: 4px 2px;
+  border-radius: 8px;
+}
+
+#workspaces button.active {
+  background: rgba(161, 196, 140, 0.88);
+  color: #121a15;
+}
+
+#workspaces button:hover {
+  background: rgba(161, 196, 140, 0.18);
+  color: #d9e2d7;
+}
+
+#custom-power {
+  color: #a1c48c;
+  min-width: 44px;
+  padding: 0 8px;
+}
+
+#custom-logout {
+  color: #d9e2d7;
+}
+
+#battery.warning {
+  color: #f5dcb4;
+}
+
+#battery.critical {
+  color: #e67e80;
+}

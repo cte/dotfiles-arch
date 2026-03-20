@@ -1,0 +1,43 @@
+# Shell
+shell-integration = zsh
+shell-integration-features = no-cursor,sudo,no-title
+
+# Typography
+font-family = NotoSansM Nerd Font Mono
+# font-family = GeistMono Nerd Font Mono
+# font-family = Input Nerd Font Mono
+# font-family = JetBrainsMono Nerd Font Mono
+# font-family = BerkeleyMono Nerd Font Mono
+# font-family = VictorMono Nerd Font Mono
+# font-family = OverpassM Nerd Font
+font-size = 12
+
+# Theme
+theme = Hardcore
+
+# Mouse
+mouse-hide-while-typing = true
+
+# Background
+# background-opacity = 0.90
+# background-blur-radius = 50
+
+# Cursor
+cursor-color = #FFE5B4
+cursor-style = bar
+
+# Scrollback
+scrollback-limit = 10_024_000
+
+# Copy/Paste
+clipboard-read = allow
+clipboard-paste-protection = false
+
+# Make Ctrl-C copy only when text is selected; otherwise let it pass through
+# to the terminal program as the normal interrupt key.
+keybind = performable:ctrl+c=copy_to_clipboard:mixed
+keybind = ctrl+v=paste_from_clipboard
+keybind = ctrl+alt+r=reload_config
+keybind = performable:alt+c=copy_to_clipboard:mixed
+keybind = alt+v=paste_from_clipboard
+keybind = alt+ctrl+r=reload_config

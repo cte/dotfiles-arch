@@ -1,0 +1,64 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 38,
+  "spacing": 10,
+  "margin-top": 8,
+  "margin-left": 10,
+  "margin-right": 10,
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["group/system", "battery", "custom/power"],
+
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "all-outputs": true,
+    "active-only": false,
+    "on-click": "activate"
+  },
+
+  "clock": {
+    "format": "  {:%a %b %d  %I:%M %p}"
+  },
+
+  "network": {
+    "format-wifi": "󰤨  {signalStrength}%",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰤭",
+    "tooltip-format": "{ifname} via {gwaddr}",
+    "on-click": "nm-connection-editor"
+  },
+
+  "pulseaudio": {
+    "format": "󰕾  {volume}%",
+    "format-muted": "󰝟",
+    "on-click": "pavucontrol"
+  },
+
+  "group/system": {
+    "orientation": "horizontal",
+    "modules": ["network", "pulseaudio", "tray"]
+  },
+
+  "tray": {
+    "icon-size": 14,
+    "spacing": 8
+  },
+
+  "battery": {
+    "format": "󰁹  {capacity}%",
+    "format-charging": "󰂄  {capacity}%",
+    "format-plugged": "󰂄",
+    "on-click": "printf 'performance\nbalanced\npower-saver' | rofi -dmenu -p power | xargs -r powerprofilesctl set",
+    "states": {
+      "warning": 25,
+      "critical": 12
+    }
+  },
+
+  "custom/power": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "wlogout"
+  }
+}

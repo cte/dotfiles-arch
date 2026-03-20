@@ -1,0 +1,143 @@
+* {
+    main-bg: rgba(17, 24, 20, 94%);
+    main-fg: rgba(225, 233, 223, 100%);
+    main-br: rgba(145, 188, 130, 90%);
+    main-ex: rgba(245, 224, 220, 100%);
+    select-bg: rgba(161, 196, 140, 100%);
+    select-fg: rgba(18, 26, 21, 100%);
+    panel-bg: rgba(10, 14, 12, 72%);
+    panel-solid: rgba(16, 22, 18, 94%);
+    muted-fg: rgba(154, 168, 156, 100%);
+    separatorcolor: transparent;
+    border-color: transparent;
+    background-color: transparent;
+    text-color: @main-fg;
+    font: "JetBrainsMono Nerd Font 11";
+}
+
+window {
+    height: 30em;
+    width: 38em;
+    transparency: "real";
+    fullscreen: false;
+    enabled: true;
+    cursor: "default";
+    spacing: 0em;
+    padding: 1.6em;
+    border: 1px;
+    border-radius: 22px;
+    border-color: @main-br;
+    background-color: @main-bg;
+}
+
+mainbox {
+    enabled: true;
+    spacing: 1em;
+    padding: 0em;
+    orientation: vertical;
+    children: [ "inputbar", "listview" ];
+    background-color: transparent;
+}
+
+inputbar {
+    enabled: true;
+    padding: 0em;
+    children: [ "entry" ];
+    background-color: transparent;
+    orientation: vertical;
+    vertical-align: 0.0;
+    horizontal-align: 0.0;
+    spacing: 0em;
+}
+
+entry {
+    enabled: true;
+    width: 100%;
+    padding: 0.8em 1em;
+    placeholder: "search";
+    placeholder-color: @muted-fg;
+    text-color: @main-fg;
+    background-color: rgba(10, 14, 12, 72%);
+    border: 0px;
+    border-radius: 999px;
+    expand: false;
+}
+
+listview {
+    enabled: true;
+    spacing: 0.35em;
+    padding: 0.4em 0em 0em 0em;
+    columns: 1;
+    lines: 9;
+    cycle: true;
+    dynamic: true;
+    scrollbar: false;
+    layout: vertical;
+    reverse: false;
+    expand: true;
+    fixed-height: false;
+    fixed-columns: true;
+    cursor: "default";
+    background-color: transparent;
+    text-color: @main-fg;
+}
+
+element {
+    enabled: true;
+    spacing: 0.8em;
+    padding: 0.75em 1em 0.75em 1.2em;
+    cursor: pointer;
+    border: 0px;
+    border-radius: 16px;
+    background-color: transparent;
+    text-color: @main-fg;
+}
+
+element selected.normal {
+    background-color: @select-bg;
+    text-color: @select-fg;
+}
+
+element selected.active {
+    background-color: @select-bg;
+    text-color: @select-fg;
+}
+
+element selected.urgent {
+    background-color: @main-ex;
+    text-color: @select-fg;
+}
+
+element-icon {
+    enabled: false;
+    size: 0em;
+    cursor: inherit;
+    background-color: transparent;
+    text-color: inherit;
+}
+
+element-text {
+    vertical-align: 0.5;
+    horizontal-align: 0.0;
+    cursor: inherit;
+    background-color: transparent;
+    text-color: inherit;
+}
+
+element-text selected {
+    text-color: @select-fg;
+}
+
+error-message {
+    text-color: @main-fg;
+    background-color: @main-bg;
+    text-transform: capitalize;
+    children: [ "textbox" ];
+}
+
+textbox {
+    text-color: inherit;
+    background-color: inherit;
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
+}
