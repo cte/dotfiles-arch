@@ -1,6 +1,6 @@
 # dotfiles
 
-Personal desktop configuration for Hyprland, Ghostty, Starship, Waybar, Waypaper, Rofi, Wlogout, Zsh, GTK, and `keyd`.
+Personal desktop configuration for Hyprland, Ghostty, Starship, Waybar, Waypaper, Rofi, Wlogout, Zsh, GTK, `cliphist`, `hyprlock`, `swayidle`, `wlsunset`, and `keyd`.
 
 The repo is structured to mirror the live filesystem paths so the active machine can use symlinks directly.
 
@@ -13,6 +13,26 @@ Wallpaper selection uses `waypaper` as the browser/picker UI and `hyprpaper` as 
 - startup restore uses `waypaper --restore --backend hyprpaper`
 - `hyprpaper.conf` must include `ipc = on`
 - `hyprpaper.conf` remains the fallback path if `waypaper` is unavailable
+
+## Clipboard History
+
+- `cliphist` stores clipboard history
+- `wl-paste --watch cliphist store` is used to feed it
+- `Super+Y` opens a Rofi-based clipboard picker
+
+## Locking And Idle
+
+- `Super+L` launches `hyprlock`
+- `swayidle` autostarts and currently:
+  - locks after 10 minutes
+  - turns displays off after 15 minutes
+  - locks before sleep
+
+## Night Color
+
+- `wlsunset` autostarts with a manual schedule
+- current schedule is sunrise `07:00`, sunset `19:00`
+- current temperatures are `6500K` day and `4000K` night
 
 ## Keyboard Mapping Rationale
 

@@ -14,9 +14,15 @@ This repository is the source of truth for the live desktop configuration on thi
 - `./.config/ghostty/config.ghostty`
 - `./.config/gtk-3.0/settings.ini`
 - `./.config/gtk-4.0/settings.ini`
+- `./.config/cliphist/config`
 - `./.config/hypr/hyprland.conf`
+- `./.config/hypr/hyprlock.conf`
+- `./.config/hypr/clipboard-menu.sh`
 - `./.config/hypr/hyprpaper.conf`
+- `./.config/hypr/start-clipboard.sh`
+- `./.config/hypr/start-idle.sh`
 - `./.config/hypr/start-wallpaper.sh`
+- `./.config/hypr/start-wlsunset.sh`
 - `./.config/rofi/config.rasi`
 - `./.config/rofi/theme.rasi`
 - `./.config/starship/starship.toml`
@@ -44,6 +50,8 @@ This repository is the source of truth for the live desktop configuration on thi
 - Inactive windows are intentionally translucent and blurred.
 - `Super+R` should launch `rofi`.
 - `Super+E` should launch `nemo`.
+- `Super+L` should lock the screen with `hyprlock`.
+- `Super+Y` should open the clipboard picker.
 - `Super+Shift+W` should launch `waypaper`.
 
 ### Waybar
@@ -61,6 +69,26 @@ This repository is the source of truth for the live desktop configuration on thi
 - The default wallpaper folder should remain `/home/cte/Dropbox/Personal/Backgrounds`.
 - Startup restore should use `waypaper --restore --backend hyprpaper`.
 - The static `hyprpaper.conf` remains the fallback path if `waypaper` is unavailable.
+
+### Clipboard
+
+- `cliphist` is the clipboard history backend.
+- Clipboard watching should be started from `wl-paste --watch`.
+- `Super+Y` should open the Rofi picker and copy the chosen entry back to the clipboard.
+
+### Locking And Idle
+
+- `hyprlock` is the lock screen.
+- `swayidle` is responsible for lock-on-idle and display power management.
+- The current target is:
+  - lock after 10 minutes
+  - DPMS off after 15 minutes
+  - lock before sleep
+
+### Night Color
+
+- `wlsunset` is the night color tool.
+- Use a conservative manual schedule unless there is a deliberate decision to wire in location-based sunrise/sunset.
 
 ### Rofi
 

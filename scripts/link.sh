@@ -4,6 +4,7 @@ set -euo pipefail
 REPO="${HOME}/dotfiles"
 
 mkdir -p \
+  "${HOME}/.config/cliphist" \
   "${HOME}/.config/ghostty" \
   "${HOME}/.config/gtk-3.0" \
   "${HOME}/.config/gtk-4.0" \
@@ -16,12 +17,18 @@ mkdir -p \
   "${HOME}/.config/wlogout"
 
 ln -sfn "${REPO}/.zshrc" "${HOME}/.zshrc"
+ln -sfn "${REPO}/.config/cliphist/config" "${HOME}/.config/cliphist/config"
 ln -sfn "${REPO}/.config/ghostty/config.ghostty" "${HOME}/.config/ghostty/config.ghostty"
 ln -sfn "${REPO}/.config/gtk-3.0/settings.ini" "${HOME}/.config/gtk-3.0/settings.ini"
 ln -sfn "${REPO}/.config/gtk-4.0/settings.ini" "${HOME}/.config/gtk-4.0/settings.ini"
 ln -sfn "${REPO}/.config/hypr/hyprland.conf" "${HOME}/.config/hypr/hyprland.conf"
+ln -sfn "${REPO}/.config/hypr/hyprlock.conf" "${HOME}/.config/hypr/hyprlock.conf"
+ln -sfn "${REPO}/.config/hypr/clipboard-menu.sh" "${HOME}/.config/hypr/clipboard-menu.sh"
 ln -sfn "${REPO}/.config/hypr/hyprpaper.conf" "${HOME}/.config/hypr/hyprpaper.conf"
+ln -sfn "${REPO}/.config/hypr/start-clipboard.sh" "${HOME}/.config/hypr/start-clipboard.sh"
+ln -sfn "${REPO}/.config/hypr/start-idle.sh" "${HOME}/.config/hypr/start-idle.sh"
 ln -sfn "${REPO}/.config/hypr/start-wallpaper.sh" "${HOME}/.config/hypr/start-wallpaper.sh"
+ln -sfn "${REPO}/.config/hypr/start-wlsunset.sh" "${HOME}/.config/hypr/start-wlsunset.sh"
 ln -sfn "${REPO}/etc/keyd/default.conf" "${HOME}/.config/keyd/default.conf"
 ln -sfn "${REPO}/.config/rofi/config.rasi" "${HOME}/.config/rofi/config.rasi"
 ln -sfn "${REPO}/.config/rofi/theme.rasi" "${HOME}/.config/rofi/theme.rasi"
