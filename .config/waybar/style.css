@@ -7,84 +7,79 @@
 }
 
 window#waybar {
-  background: transparent;
+  background: rgba(30, 30, 46, 0.25);
   color: #cdd6f4;
 }
 
 .modules-left,
 .modules-center,
 .modules-right {
-  margin: 0;
+  margin: 0 6px;
 }
 
-#workspaces,
-#clock,
-#group-system,
-#custom-power-profile,
+.modules-right {
+  margin-right: 16px;
+}
+
 #network,
 #pulseaudio,
-#battery,
 #tray,
-#custom-power {
-  background: rgba(30, 30, 46, 0.30);
-  color: #cdd6f4;
-  border-radius: 10px;
-  padding: 0 10px;
-  margin: 0 3px;
-  border: 1px solid rgba(203, 166, 247, 0.18);
-}
-
-#group-system {
-  padding: 0 6px;
-}
-
-#group-system #network,
-#group-system #pulseaudio,
-#group-system #custom-power,
-#group-system #tray {
-  background: transparent;
-  border-radius: 8px;
-  min-width: 86px;
-  font-size: 16px;
-  padding: 0 14px;
-  margin: 0 2px;
-}
-
-#group-system #network,
-#group-system #pulseaudio,
-#group-system #tray,
+#custom-power,
 #custom-power-profile,
-#battery,
-#custom-power {
+#custom-battery-icon {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+#network,
+#pulseaudio,
+#tray {
+  min-width: 0;
+  font-size: 14px;
   padding-left: 0;
   padding-right: 0;
 }
 
+/* Experiment: use one spacing constant across the whole right cluster. */
+#network,
+#pulseaudio,
+#tray,
+#custom-battery-icon {
+  margin-right: 16px;
+}
+
 #custom-power-profile,
-#battery,
+#custom-battery-icon,
 #custom-power {
-  min-width: 86px;
+  min-width: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 #custom-power-profile {
-  min-width: 44px;
-  padding: 0;
+  margin-right: 16px;
 }
 
 #workspaces {
-  padding: 0 4px;
+  padding: 2px 8px;
 }
 
 #clock {
+  font-family: "Roboto";
   min-width: 220px;
-  padding: 0 14px;
-  font-weight: 600;
+  padding: 2px 10px;
+  font-weight: 400;
 }
 
 #workspaces button {
   color: #a6adc8;
-  padding: 0 8px;
-  margin: 4px 2px;
+  background: transparent;
+  padding: 0 10px;
+  margin: 2px 0;
   border-radius: 8px;
 }
 
@@ -102,9 +97,8 @@ window#waybar {
 
 #custom-power {
   color: #f38ba8;
-  min-width: 44px;
-  font-size: 16px;
-  padding: 0 8px;
+  font-size: 14px;
+  margin-right: 0;
 }
 
 #custom-power-profile.performance {
@@ -119,10 +113,18 @@ window#waybar {
   color: #a6e3a1;
 }
 
-#battery.warning {
+#custom-battery-icon.battery-normal {
+  color: #cdd6f4;
+}
+
+#custom-battery-icon.battery-warning {
   color: #f9e2af;
 }
 
-#battery.critical {
+#custom-battery-icon.battery-critical {
   color: #f38ba8;
+}
+
+#custom-battery-icon.battery-charging {
+  color: #a6e3a1;
 }

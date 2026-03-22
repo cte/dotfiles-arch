@@ -2,13 +2,13 @@
   "layer": "top",
   "position": "top",
   "height": 38,
-  "spacing": 10,
-  "margin-top": 8,
-  "margin-left": 10,
-  "margin-right": 10,
+  "spacing": 0,
+  "margin-top": 0,
+  "margin-left": 0,
+  "margin-right": 0,
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["group/system", "custom/power-profile", "battery", "custom/power"],
+  "modules-right": ["network", "pulseaudio", "tray", "custom/power-profile", "custom/battery-icon", "custom/power"],
 
   "hyprland/workspaces": {
     "format": "{name}",
@@ -22,7 +22,7 @@
   },
 
   "network": {
-    "format-wifi": "<span font_desc='Font Awesome 7 Free Solid 10'></span>  {signalStrength}%",
+    "format-wifi": "<span font_desc='Font Awesome 7 Free Solid 10'></span>",
     "format-ethernet": "<span font_desc='Font Awesome 7 Free Solid 10'></span>",
     "format-disconnected": "<span font_desc='Font Awesome 7 Free Solid 10'></span>",
     "tooltip-format": "{ifname} via {gwaddr}",
@@ -30,18 +30,23 @@
   },
 
   "pulseaudio": {
-    "format": "<span font_desc='Font Awesome 7 Free Solid 10'></span>  {volume}%",
+    "format": "<span font_desc='Font Awesome 7 Free Solid 10'></span>",
     "format-muted": "<span font_desc='Font Awesome 7 Free Solid 10'></span>",
     "on-click": "pavucontrol"
   },
 
-  "group/system": {
-    "orientation": "horizontal",
-    "modules": ["network", "pulseaudio", "tray"]
+  "custom/power-profile": {
+    "exec": "/home/cte/.config/waybar/power-segment.sh profile",
+    "return-type": "json",
+    "interval": 30,
+    "signal": 8,
+    "on-click": "/home/cte/.config/waybar/power-profile-menu.sh",
+    "on-scroll-up": "/home/cte/.config/waybar/power-profile-cycle.sh prev",
+    "on-scroll-down": "/home/cte/.config/waybar/power-profile-cycle.sh next"
   },
 
-  "custom/power-profile": {
-    "exec": "/home/cte/.config/waybar/power-profile-status.sh",
+  "custom/battery-icon": {
+    "exec": "/home/cte/.config/waybar/power-segment.sh battery-icon",
     "return-type": "json",
     "interval": 30,
     "signal": 8,
@@ -51,18 +56,8 @@
   },
 
   "tray": {
-    "icon-size": 18,
-    "spacing": 8
-  },
-
-  "battery": {
-    "format": "<span font_desc='Font Awesome 7 Free Solid 10'></span>  {capacity}%",
-    "format-charging": "<span font_desc='Font Awesome 7 Free Solid 10'></span>  {capacity}%",
-    "format-plugged": "<span font_desc='Font Awesome 7 Free Solid 10'></span>",
-    "states": {
-      "warning": 25,
-      "critical": 12
-    }
+    "icon-size": 16,
+    "spacing": 12
   },
 
   "custom/power": {

@@ -63,7 +63,7 @@ ln -sfn "${REPO}/.config/starship/starship.toml" "${HOME}/.config/starship.toml"
 ln -sfn "${REPO}/.config/waybar/config.jsonc" "${HOME}/.config/waybar/config.jsonc"
 ln -sfn "${REPO}/.config/waybar/power-profile-cycle.sh" "${HOME}/.config/waybar/power-profile-cycle.sh"
 ln -sfn "${REPO}/.config/waybar/power-profile-menu.sh" "${HOME}/.config/waybar/power-profile-menu.sh"
-ln -sfn "${REPO}/.config/waybar/power-profile-status.sh" "${HOME}/.config/waybar/power-profile-status.sh"
+ln -sfn "${REPO}/.config/waybar/power-segment.sh" "${HOME}/.config/waybar/power-segment.sh"
 ln -sfn "${REPO}/.config/waybar/style.css" "${HOME}/.config/waybar/style.css"
 ln -sfn "${REPO}/.config/waypaper/config.ini" "${HOME}/.config/waypaper/config.ini"
 
