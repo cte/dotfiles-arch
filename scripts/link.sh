@@ -7,6 +7,7 @@ mkdir -p \
   "${HOME}/.local/share/applications" \
   "${HOME}/.config/btop/themes" \
   "${HOME}/.config/cliphist" \
+  "${HOME}/.config/Code/User" \
   "${HOME}/.config/ghostty" \
   "${HOME}/.config/gtk-3.0" \
   "${HOME}/.config/gtk-4.0" \
@@ -36,6 +37,7 @@ rm -f "${HOME}/.config/btop/themes/catppuccin_mocha.theme"
 ln -sfn "${REPO}/.config/btop/btop.conf" "${HOME}/.config/btop/btop.conf"
 ln -sfn "${REPO}/.config/btop/themes/catppuccin_mocha.theme" "${HOME}/.config/btop/themes/catppuccin_mocha.theme"
 ln -sfn "${REPO}/.config/cliphist/config" "${HOME}/.config/cliphist/config"
+ln -sfn "${REPO}/.config/Code/User/settings.json" "${HOME}/.config/Code/User/settings.json"
 ln -sfn "${REPO}/.config/ghostty/config.ghostty" "${HOME}/.config/ghostty/config.ghostty"
 ln -sfn "${REPO}/.config/gtk-3.0/settings.ini" "${HOME}/.config/gtk-3.0/settings.ini"
 ln -sfn "${REPO}/.config/gtk-4.0/settings.ini" "${HOME}/.config/gtk-4.0/settings.ini"

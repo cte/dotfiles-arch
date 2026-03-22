@@ -1,0 +1,13 @@
+{
+    "chat.disableAIFeatures": true,
+
+    "window.menuBarVisibility": "compact",
+
+    "workbench.colorTheme": "Catppuccin Frappé",
+    "workbench.iconTheme": "catppuccin-frappe",
+
+    "editor.fontFamily": "NotoSansM Nerd Font Mono",
+    "editor.fontSize": 14,
+    "catppuccin.italicComments": false,
+    "catppuccin.italicKeywords": false
+}
