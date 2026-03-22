@@ -1,6 +1,8 @@
-# dotfiles
+# dotfiles-arch
 
-Personal desktop configuration for Hyprland, Ghostty, Neovim, Starship, Waybar, Waypaper, Rofi, Zsh, GTK, `btop`, `cliphist`, `hyprlock`, `swayidle`, and `keyd`.
+Personal Arch Linux desktop configuration for Hyprland, Ghostty, Neovim, Starship, Waybar, Waypaper, Rofi, Zsh, GTK, `btop`, `cliphist`, `hyprlock`, `swayidle`, and `keyd`.
+
+This repo is Arch-specific. It reflects the package names, filesystem layout, and desktop tooling used on the live Arch machine it configures.
 
 The repo is structured to mirror the live filesystem paths so the active machine can use symlinks directly.
 
@@ -85,4 +87,4 @@ Run:
 ./scripts/link.sh
 ```
 
-This will recreate the user-level symlinks. The `keyd` system symlink still requires `sudo`.
+This will recreate the user-level symlinks on the target Arch system. The `keyd` system symlink still requires `sudo`.
