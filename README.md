@@ -1,6 +1,6 @@
 # dotfiles-arch
 
-Personal Arch Linux desktop configuration for Hyprland, Ghostty, Neovim, Starship, Waybar, Waypaper, Rofi, Zsh, GTK, `btop`, `cliphist`, `hyprlock`, `swayidle`, and `keyd`.
+Personal Arch Linux desktop configuration for Hyprland, Ghostty, Neovim, Starship, Waybar, Waypaper, Rofi, Zsh, GTK, VS Code, `btop`, `cliphist`, `hyprlock`, `swayidle`, and `keyd`.
 
 This repo is Arch-specific. It reflects the package names, filesystem layout, and desktop tooling used on the live Arch machine it configures.
 
@@ -24,15 +24,33 @@ Neovim is configured as a small personal setup, not a full distribution.
 - language servers are expected to come from normal packages on `$PATH`
 - plugin versions are pinned in `lazy-lock.json`
 
+## VS Code
+
+- settings path: `~/.config/Code/User/settings.json`
+- editor font: `NotoSansM Nerd Font Mono`
+- theme: `Catppuccin Frappé`
+- icon theme: `catppuccin-frappe`
+- Catppuccin italics are disabled via the theme's own settings
+
 ## Wallpaper Flow
 
 Wallpaper selection uses `waypaper` as the browser/picker UI and `hyprpaper` as the actual wallpaper daemon.
 
 - `waypaper` is configured with `backend = hyprpaper`
 - selecting a wallpaper talks directly to `hyprpaper`
-- startup restore uses `waypaper --restore --backend hyprpaper`
+- `waypaper` runs a `post_command` that immediately syncs the chosen wallpaper back into `hyprpaper.conf`
+- startup uses `hyprpaper` directly from the synced `hyprpaper.conf`, not `waypaper --restore`
 - `hyprpaper.conf` must include `ipc = on`
 - `hyprpaper.conf` remains the fallback path if `waypaper` is unavailable
+
+## Waybar
+
+- right side order is: grouped system status, power profile, battery, power
+- `custom/power-profile` is the power mode control
+- click the profile pill to choose `performance`, `balanced`, or `power-saver`
+- scroll the profile pill to cycle modes
+- battery is status-only
+- power opens the Rofi power menu
 
 ## Clipboard History
 
@@ -69,8 +87,8 @@ sudo keyd reload
 Then verify:
 
 - GUI app: `Left Alt-C`, `Left Alt-V`, `Left Alt-T`, `Left Alt-W`
-- Text field: `Left Alt-Left`, `Left Alt-Right`
-- Selection: `Left Alt-Shift-Left`, `Left Alt-Shift-Right`
+- Text field: `Left Alt-Left`, `Left Alt-Right`, `Left Alt-Up`, `Left Alt-Down`
+- Selection: `Left Alt-Shift-Left`, `Left Alt-Shift-Right`, `Left Alt-Shift-Up`, `Left Alt-Shift-Down`
 - Ghostty after full restart: selected text + `Left Alt-C`, prompt + `Left Alt-V`
 
 For raw event debugging:

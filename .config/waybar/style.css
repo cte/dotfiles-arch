@@ -66,6 +66,11 @@ window#waybar {
   min-width: 86px;
 }
 
+#custom-power-profile {
+  min-width: 44px;
+  padding: 0;
+}
+
 #workspaces {
   padding: 0 4px;
 }

@@ -14,6 +14,7 @@ This repository is the source of truth for the live desktop configuration on thi
 - `./.local/share/applications/*.desktop`
 - `./.config/btop/btop.conf`
 - `./.config/btop/themes/*.theme`
+- `./.config/Code/User/settings.json`
 - `./.config/ghostty/config.ghostty`
 - `./.config/gtk-3.0/settings.ini`
 - `./.config/gtk-4.0/settings.ini`
@@ -32,6 +33,7 @@ This repository is the source of truth for the live desktop configuration on thi
 - `./.config/rofi/theme.rasi`
 - `./.config/starship/starship.toml`
 - `./.config/waybar/config.jsonc`
+- `./.config/waybar/power-profile-*.sh`
 - `./.config/waybar/style.css`
 - `./.config/waypaper/config.ini`
 - `./etc/keyd/default.conf`
@@ -61,9 +63,11 @@ This repository is the source of truth for the live desktop configuration on thi
 ### Waybar
 
 - The bar should stay clean and minimal.
-- Right side order matters: grouped status, battery, then the power button at the far right.
+- Right side order matters: grouped status, power profile, battery, then the power button at the far right.
 - The tray exists primarily to host Dropbox.
 - Avoid reintroducing `nm-applet` unless there is a specific reason.
+- Keep the dedicated power profile pill. It should stay icon-first and compact.
+- The profile pill should remain the place to switch between `performance`, `balanced`, and `power-saver`.
 - The power button and `Super+M` should launch the Rofi power menu.
 
 ### Waypaper
@@ -72,8 +76,9 @@ This repository is the source of truth for the live desktop configuration on thi
 - It should use `hyprpaper` as the backend.
 - `hyprpaper.conf` must keep `ipc = on` so Waypaper can talk to it.
 - The default wallpaper folder should remain `/home/cte/Dropbox/Personal/Backgrounds`.
-- Startup restore should use `waypaper --restore --backend hyprpaper`.
-- The static `hyprpaper.conf` remains the fallback path if `waypaper` is unavailable.
+- Waypaper should immediately sync the selected wallpaper back into `hyprpaper.conf` via the repo-managed `post_command`.
+- Startup should use `hyprpaper` directly from the synced `hyprpaper.conf`, not `waypaper --restore`.
+- The static `hyprpaper.conf` remains the startup source of truth and fallback path if `waypaper` is unavailable.
 
 ### Clipboard
 
@@ -150,12 +155,22 @@ Basic verification after editing `keyd`:
   - `Left Alt-W` close tab/window
   - `Left Alt-Left` beginning of line
   - `Left Alt-Right` end of line
+  - `Left Alt-Up` top of document
+  - `Left Alt-Down` bottom of document
   - `Left Alt-Shift-Left` select to beginning of line
   - `Left Alt-Shift-Right` select to end of line
+  - `Left Alt-Shift-Up` select to top of document
+  - `Left Alt-Shift-Down` select to bottom of document
 - Test in Ghostty after a full restart:
   - selected text + `Left Alt-C`
   - shell prompt + `Left Alt-V`
 - If behavior is unclear, use `sudo keyd monitor -t` and press the physical keys from a different window.
+
+### VS Code
+
+- Keep user settings tracked in `./.config/Code/User/settings.json`.
+- The current font is `NotoSansM Nerd Font Mono`.
+- Catppuccin Frappé is the current theme and its italics should be disabled through the theme's own settings, not broad token overrides.
 
 ## Reload Notes
 
