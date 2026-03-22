@@ -20,6 +20,7 @@ window#waybar {
 #workspaces,
 #clock,
 #group-system,
+#custom-power-profile,
 #network,
 #pulseaudio,
 #battery,
@@ -52,12 +53,14 @@ window#waybar {
 #group-system #network,
 #group-system #pulseaudio,
 #group-system #tray,
+#custom-power-profile,
 #battery,
 #custom-power {
   padding-left: 0;
   padding-right: 0;
 }
 
+#custom-power-profile,
 #battery,
 #custom-power {
   min-width: 86px;
@@ -97,6 +100,18 @@ window#waybar {
   min-width: 44px;
   font-size: 16px;
   padding: 0 8px;
+}
+
+#custom-power-profile.performance {
+  color: #f9e2af;
+}
+
+#custom-power-profile.balanced {
+  color: #cdd6f4;
+}
+
+#custom-power-profile.power-saver {
+  color: #a6e3a1;
 }
 
 #battery.warning {
