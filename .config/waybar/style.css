@@ -1,14 +1,14 @@
 * {
   border: none;
   border-radius: 0;
-  font-family: "OverpassM Nerd Font Mono";
-  font-size: 12px;
+  font-family: "GeistMono Nerd Font Mono";
+  font-size: 14px;
   min-height: 0;
 }
 
 window#waybar {
   background: transparent;
-  color: #e1e9df;
+  color: #cdd6f4;
 }
 
 .modules-left,
@@ -24,13 +24,13 @@ window#waybar {
 #pulseaudio,
 #battery,
 #tray,
-#custom-logout,
 #custom-power {
-  background: rgba(0, 0, 0, 0.26);
-  color: #d9e2d7;
+  background: rgba(30, 30, 46, 0.30);
+  color: #cdd6f4;
   border-radius: 10px;
   padding: 0 10px;
   margin: 0 3px;
+  border: 1px solid rgba(203, 166, 247, 0.18);
 }
 
 #group-system {
@@ -39,13 +39,13 @@ window#waybar {
 
 #group-system #network,
 #group-system #pulseaudio,
-#group-system #custom-logout,
 #group-system #custom-power,
 #group-system #tray {
   background: transparent;
   border-radius: 8px;
-  min-width: 72px;
-  padding: 0 12px;
+  min-width: 86px;
+  font-size: 16px;
+  padding: 0 14px;
   margin: 0 2px;
 }
 
@@ -60,44 +60,49 @@ window#waybar {
 
 #battery,
 #custom-power {
-  min-width: 72px;
+  min-width: 86px;
 }
 
 #workspaces {
   padding: 0 4px;
 }
 
+#clock {
+  min-width: 220px;
+  padding: 0 14px;
+  font-weight: 600;
+}
+
 #workspaces button {
-  color: #8f9d92;
+  color: #a6adc8;
   padding: 0 8px;
   margin: 4px 2px;
   border-radius: 8px;
 }
 
 #workspaces button.active {
-  background: rgba(161, 196, 140, 0.88);
-  color: #121a15;
+  background: rgba(0, 0, 0, 0.22);
+  color: #cba6f7;
+  border: none;
+  font-weight: 700;
 }
 
 #workspaces button:hover {
-  background: rgba(161, 196, 140, 0.18);
-  color: #d9e2d7;
+  background: rgba(203, 166, 247, 0.18);
+  color: #cdd6f4;
 }
 
 #custom-power {
-  color: #a1c48c;
+  color: #f38ba8;
   min-width: 44px;
+  font-size: 16px;
   padding: 0 8px;
 }
 
-#custom-logout {
-  color: #d9e2d7;
-}
-
 #battery.warning {
-  color: #f5dcb4;
+  color: #f9e2af;
 }
 
 #battery.critical {
-  color: #e67e80;
+  color: #f38ba8;
 }

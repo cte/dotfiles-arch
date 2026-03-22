@@ -3,11 +3,6 @@
 set -euo pipefail
 
 config="$HOME/.config/hypr/hyprpaper.conf"
-waypaper_config="$HOME/.config/waypaper/config.ini"
-
-if command -v waypaper >/dev/null 2>&1 && [ -f "$waypaper_config" ]; then
-  exec waypaper --restore --backend hyprpaper
-fi
 
 if ! command -v hyprpaper >/dev/null 2>&1; then
   exit 0

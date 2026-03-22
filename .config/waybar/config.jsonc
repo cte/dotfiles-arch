@@ -18,20 +18,20 @@
   },
 
   "clock": {
-    "format": "  {:%a %b %d  %I:%M %p}"
+    "format": "<span font_desc='Font Awesome 7 Free Solid 10'></span>  {:%a %b %d  %I:%M %p}"
   },
 
   "network": {
-    "format-wifi": "󰤨  {signalStrength}%",
-    "format-ethernet": "󰈀",
-    "format-disconnected": "󰤭",
+    "format-wifi": "<span font_desc='Font Awesome 7 Free Solid 10'></span>  {signalStrength}%",
+    "format-ethernet": "<span font_desc='Font Awesome 7 Free Solid 10'></span>",
+    "format-disconnected": "<span font_desc='Font Awesome 7 Free Solid 10'></span>",
     "tooltip-format": "{ifname} via {gwaddr}",
-    "on-click": "nm-connection-editor"
+    "on-click": "/usr/bin/bash -lc '/usr/bin/ghostty -e /usr/bin/nmtui'"
   },
 
   "pulseaudio": {
-    "format": "󰕾  {volume}%",
-    "format-muted": "󰝟",
+    "format": "<span font_desc='Font Awesome 7 Free Solid 10'></span>  {volume}%",
+    "format-muted": "<span font_desc='Font Awesome 7 Free Solid 10'></span>",
     "on-click": "pavucontrol"
   },
 
@@ -41,14 +41,14 @@
   },
 
   "tray": {
-    "icon-size": 14,
+    "icon-size": 18,
     "spacing": 8
   },
 
   "battery": {
-    "format": "󰁹  {capacity}%",
-    "format-charging": "󰂄  {capacity}%",
-    "format-plugged": "󰂄",
+    "format": "<span font_desc='Font Awesome 7 Free Solid 10'></span>  {capacity}%",
+    "format-charging": "<span font_desc='Font Awesome 7 Free Solid 10'></span>  {capacity}%",
+    "format-plugged": "<span font_desc='Font Awesome 7 Free Solid 10'></span>",
     "on-click": "printf 'performance\nbalanced\npower-saver' | rofi -dmenu -p power | xargs -r powerprofilesctl set",
     "states": {
       "warning": 25,
@@ -57,8 +57,8 @@
   },
 
   "custom/power": {
-    "format": "",
+    "format": "<span font_desc='Font Awesome 7 Free Solid 10'></span>",
     "tooltip": false,
-    "on-click": "wlogout"
+    "on-click": "/usr/bin/bash -lc '/home/cte/.config/hypr/power-menu.sh'"
   }
 }

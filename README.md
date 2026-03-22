@@ -1,8 +1,26 @@
 # dotfiles
 
-Personal desktop configuration for Hyprland, Ghostty, Starship, Waybar, Waypaper, Rofi, Wlogout, Zsh, GTK, `cliphist`, `hyprlock`, `swayidle`, `wlsunset`, and `keyd`.
+Personal desktop configuration for Hyprland, Ghostty, Neovim, Starship, Waybar, Waypaper, Rofi, Zsh, GTK, `btop`, `cliphist`, `hyprlock`, `swayidle`, and `keyd`.
 
 The repo is structured to mirror the live filesystem paths so the active machine can use symlinks directly.
+
+Launcher cleanup is handled with local desktop-entry overrides in `~/.local/share/applications/` so unwanted system apps can be hidden from Rofi without modifying the system package files.
+
+## btop
+
+- theme: Catppuccin Mocha
+- config path: `~/.config/btop/btop.conf`
+- custom themes live in `~/.config/btop/themes/`
+
+## Neovim
+
+Neovim is configured as a small personal setup, not a full distribution.
+
+- plugin manager: `lazy.nvim`
+- theme: Catppuccin Mocha
+- editor stack: Treesitter, native LSP, `blink.cmp`, `snacks.nvim`
+- language servers are expected to come from normal packages on `$PATH`
+- plugin versions are pinned in `lazy-lock.json`
 
 ## Wallpaper Flow
 
@@ -27,12 +45,6 @@ Wallpaper selection uses `waypaper` as the browser/picker UI and `hyprpaper` as 
   - locks after 10 minutes
   - turns displays off after 15 minutes
   - locks before sleep
-
-## Night Color
-
-- `wlsunset` autostarts with a manual schedule
-- current schedule is sunrise `07:00`, sunset `19:00`
-- current temperatures are `6500K` day and `4000K` night
 
 ## Keyboard Mapping Rationale
 

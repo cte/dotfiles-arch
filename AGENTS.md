@@ -11,6 +11,9 @@ This repository is the source of truth for the live desktop configuration on thi
 ## Repo Layout
 
 - `./.zshrc`
+- `./.local/share/applications/*.desktop`
+- `./.config/btop/btop.conf`
+- `./.config/btop/themes/*.theme`
 - `./.config/ghostty/config.ghostty`
 - `./.config/gtk-3.0/settings.ini`
 - `./.config/gtk-4.0/settings.ini`
@@ -18,27 +21,28 @@ This repository is the source of truth for the live desktop configuration on thi
 - `./.config/hypr/hyprland.conf`
 - `./.config/hypr/hyprlock.conf`
 - `./.config/hypr/clipboard-menu.sh`
+- `./.config/hypr/power-menu.sh`
 - `./.config/hypr/hyprpaper.conf`
 - `./.config/hypr/start-clipboard.sh`
 - `./.config/hypr/start-idle.sh`
 - `./.config/hypr/start-wallpaper.sh`
-- `./.config/hypr/start-wlsunset.sh`
+- `./.config/nvim/init.lua`
+- `./.config/nvim/lua/...`
 - `./.config/rofi/config.rasi`
 - `./.config/rofi/theme.rasi`
 - `./.config/starship/starship.toml`
 - `./.config/waybar/config.jsonc`
 - `./.config/waybar/style.css`
 - `./.config/waypaper/config.ini`
-- `./.config/wlogout/layout`
-- `./.config/wlogout/style.css`
 - `./etc/keyd/default.conf`
 
 ## Theme Rules
 
 - Prefer a dark, minimal desktop.
-- Bias toward deep green, moss, leaf, and muted neutral tones that fit the wallpaper.
+- Bias toward Catppuccin Mocha surfaces, muted mauve and blue accents, and restrained contrast.
 - Avoid bright borders, loud gradients, or heavy glass effects by default.
 - Keep UI surfaces compact and legible.
+- Use Geist and Geist Mono where possible.
 - Use Nerd Font glyphs when they improve clarity, but do not replace readable text with ambiguous icons.
 
 ## Current Intent By Area
@@ -46,7 +50,7 @@ This repository is the source of truth for the live desktop configuration on thi
 ### Hyprland
 
 - Keep the layout minimal.
-- Focused borders should stay subtle and green-toned.
+- Focused borders should stay subtle and Catppuccin-toned.
 - Inactive windows are intentionally translucent and blurred.
 - `Super+R` should launch `rofi`.
 - `Super+E` should launch `nemo`.
@@ -60,6 +64,7 @@ This repository is the source of truth for the live desktop configuration on thi
 - Right side order matters: grouped status, battery, then the power button at the far right.
 - The tray exists primarily to host Dropbox.
 - Avoid reintroducing `nm-applet` unless there is a specific reason.
+- The power button and `Super+M` should launch the Rofi power menu.
 
 ### Waypaper
 
@@ -85,23 +90,32 @@ This repository is the source of truth for the live desktop configuration on thi
   - DPMS off after 15 minutes
   - lock before sleep
 
-### Night Color
-
-- `wlsunset` is the night color tool.
-- Use a conservative manual schedule unless there is a deliberate decision to wire in location-based sunrise/sunset.
-
 ### Rofi
 
 - Keep it single-panel and minimal.
 - No left-side image pane.
 - No icons in the application list.
-- Use the established green palette unless there is a deliberate redesign.
+- Keep the Catppuccin Mocha palette and the fake gradient frame.
+- Hide unwanted launcher items with local desktop-entry overrides in `~/.local/share/applications`, not with brittle Rofi-side hacks.
+
+### btop
+
+- Keep the Catppuccin Mocha theme.
+- Track custom themes in `./.config/btop/themes/`.
 
 ### Ghostty
 
 - Keep the `Hardcore` theme unless explicitly changed.
 - Preserve system clipboard behavior for both `Ctrl` and `Alt` copy/paste bindings.
 - Ghostty often needs a full restart for keybind changes to apply reliably.
+
+### Neovim
+
+- Keep it small and personal, not a full distro.
+- Use `lazy.nvim` for plugin management.
+- The baseline stack is Catppuccin Mocha, Treesitter, native 0.11 LSP, `blink.cmp`, and `snacks.nvim`.
+- Keep `lazy-lock.json` tracked so plugin updates are explicit.
+- Prefer Arch-packaged language servers on `$PATH` over auto-install managers unless there is a clear reason otherwise.
 
 ### Starship
 

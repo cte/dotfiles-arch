@@ -113,4 +113,6 @@ fi
 
 if command -v mise >/dev/null 2>&1; then
   eval "$(mise activate zsh)"
+  # Prefer mise shims so global npm: tools stay available across runtime switches.
+  export PATH="$HOME/.local/share/mise/shims:$PATH"
 fi

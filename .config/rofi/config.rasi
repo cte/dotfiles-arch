@@ -7,7 +7,7 @@ configuration {
     drun-display-format: "{name}";
     window-format: "{w}{t}";
     icon-theme: "Adwaita";
-    font: "JetBrainsMono Nerd Font 11";
+    font: "GeistMono Nerd Font Mono 10";
 }
 
 @theme "theme.rasi"

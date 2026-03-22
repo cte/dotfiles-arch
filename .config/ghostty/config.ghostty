@@ -3,8 +3,8 @@ shell-integration = zsh
 shell-integration-features = no-cursor,sudo,no-title
 
 # Typography
-font-family = NotoSansM Nerd Font Mono
-# font-family = GeistMono Nerd Font Mono
+font-family = GeistMono Nerd Font Mono
+# font-family = NotoSansM Nerd Font Mono
 # font-family = Input Nerd Font Mono
 # font-family = JetBrainsMono Nerd Font Mono
 # font-family = BerkeleyMono Nerd Font Mono
@@ -13,7 +13,7 @@ font-family = NotoSansM Nerd Font Mono
 font-size = 12
 
 # Theme
-theme = Hardcore
+theme = Catppuccin Mocha
 
 # Mouse
 mouse-hide-while-typing = true

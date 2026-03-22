@@ -1,42 +1,44 @@
 * {
-    main-bg: rgba(17, 24, 20, 94%);
-    main-fg: rgba(225, 233, 223, 100%);
-    main-br: rgba(145, 188, 130, 90%);
-    main-ex: rgba(245, 224, 220, 100%);
-    select-bg: rgba(161, 196, 140, 100%);
-    select-fg: rgba(18, 26, 21, 100%);
-    panel-bg: rgba(10, 14, 12, 72%);
-    panel-solid: rgba(16, 22, 18, 94%);
-    muted-fg: rgba(154, 168, 156, 100%);
+    main-bg: rgba(30, 30, 46, 68%);
+    main-fg: rgba(205, 214, 244, 100%);
+    main-br: linear-gradient(45deg, rgba(203, 166, 247, 46%), rgba(137, 180, 250, 46%));
+    main-ex: rgba(243, 139, 168, 100%);
+    select-bg: rgba(203, 166, 247, 100%);
+    select-fg: rgba(17, 17, 27, 100%);
+    panel-bg: rgba(24, 24, 37, 42%);
+    panel-solid: rgba(30, 30, 46, 84%);
+    muted-fg: rgba(166, 173, 200, 100%);
     separatorcolor: transparent;
     border-color: transparent;
     background-color: transparent;
     text-color: @main-fg;
-    font: "JetBrainsMono Nerd Font 11";
+    font: "GeistMono Nerd Font Mono 10";
 }
 
 window {
-    height: 30em;
-    width: 38em;
+    height: 22.2em;
+    width: 30em;
     transparency: "real";
     fullscreen: false;
     enabled: true;
     cursor: "default";
     spacing: 0em;
-    padding: 1.6em;
-    border: 1px;
-    border-radius: 22px;
-    border-color: @main-br;
-    background-color: @main-bg;
+    padding: 0px;
+    border: 0px;
+    border-radius: 11.5px;
+    background-color: transparent;
+    background-image: @main-br;
 }
 
 mainbox {
     enabled: true;
-    spacing: 1em;
-    padding: 0em;
+    spacing: 0.6em;
+    margin: 1.5px;
+    padding: 0.95em;
     orientation: vertical;
     children: [ "inputbar", "listview" ];
-    background-color: transparent;
+    background-color: @panel-solid;
+    border-radius: 10px;
 }
 
 inputbar {
@@ -53,11 +55,11 @@ inputbar {
 entry {
     enabled: true;
     width: 100%;
-    padding: 0.8em 1em;
-    placeholder: "search";
+    padding: 0.55em 0.8em;
+    placeholder: "Search";
     placeholder-color: @muted-fg;
     text-color: @main-fg;
-    background-color: rgba(10, 14, 12, 72%);
+    background-color: rgba(24, 24, 37, 42%);
     border: 0px;
     border-radius: 999px;
     expand: false;
@@ -65,10 +67,10 @@ entry {
 
 listview {
     enabled: true;
-    spacing: 0.35em;
-    padding: 0.4em 0em 0em 0em;
+    spacing: 0.22em;
+    padding: 0.15em 0em 0em 0em;
     columns: 1;
-    lines: 9;
+    lines: 8;
     cycle: true;
     dynamic: true;
     scrollbar: false;
@@ -84,28 +86,31 @@ listview {
 
 element {
     enabled: true;
-    spacing: 0.8em;
-    padding: 0.75em 1em 0.75em 1.2em;
+    spacing: 0.5em;
+    padding: 0.5em 0.8em 0.5em 0.95em;
     cursor: pointer;
     border: 0px;
-    border-radius: 16px;
+    border-radius: 12px;
     background-color: transparent;
     text-color: @main-fg;
 }
 
 element selected.normal {
-    background-color: @select-bg;
-    text-color: @select-fg;
+    background-color: rgba(0, 0, 0, 22%);
+    text-color: rgba(203, 166, 247, 100%);
+    border: 0px;
 }
 
 element selected.active {
-    background-color: @select-bg;
-    text-color: @select-fg;
+    background-color: rgba(0, 0, 0, 22%);
+    text-color: rgba(203, 166, 247, 100%);
+    border: 0px;
 }
 
 element selected.urgent {
-    background-color: @main-ex;
-    text-color: @select-fg;
+    background-color: rgba(0, 0, 0, 22%);
+    text-color: rgba(243, 139, 168, 100%);
+    border: 0px;
 }
 
 element-icon {
@@ -125,7 +130,8 @@ element-text {
 }
 
 element-text selected {
-    text-color: @select-fg;
+    text-color: inherit;
+    text-transform: bold;
 }
 
 error-message {
