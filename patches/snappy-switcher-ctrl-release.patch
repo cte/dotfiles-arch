@@ -1,0 +1,49 @@
+--- a/src/input.c
++++ b/src/input.c
+@@ -20,7 +20,7 @@
+ static struct xkb_keymap *xkb_keymap = NULL;
+ static struct xkb_state *xkb_st = NULL;
+ 
+-static bool alt_pressed = false;
++static bool ctrl_pressed = false;
+ static bool ignore_first_release = true;
+ 
+ alt_release_callback_t on_alt_release = NULL;
+@@ -28,9 +28,9 @@
+ static AppState *app_state = NULL;
+ 
+ void input_reset_alt_state(void) {
+-  alt_pressed = true;
++  ctrl_pressed = true;
+   ignore_first_release = true;
+-  LOG("Alt state reset");
++  LOG("Ctrl state reset");
+ }
+ 
+ static void keyboard_keymap(void *data, struct wl_keyboard *keyboard,
+@@ -155,20 +155,20 @@
+     return;
+   xkb_state_update_mask(xkb_st, depressed, latched, locked, 0, 0, group);
+ 
+-  bool alt_now = xkb_state_mod_name_is_active(xkb_st, XKB_MOD_NAME_ALT,
+-                                              XKB_STATE_MODS_EFFECTIVE);
++  bool ctrl_now = xkb_state_mod_name_is_active(xkb_st, XKB_MOD_NAME_CTRL,
++                                               XKB_STATE_MODS_EFFECTIVE);
+ 
+   if (ignore_first_release) {
+     ignore_first_release = false;
+-    alt_pressed = alt_now;
++    ctrl_pressed = ctrl_now;
+     return;
+   }
+ 
+-  if (alt_pressed && !alt_now) {
++  if (ctrl_pressed && !ctrl_now) {
+     if (on_alt_release)
+       on_alt_release();
+   }
+-  alt_pressed = alt_now;
++  ctrl_pressed = ctrl_now;
+ }
+ 
+ static void keyboard_repeat_info(void *data, struct wl_keyboard *keyboard,

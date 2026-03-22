@@ -1,6 +1,6 @@
 # dotfiles-arch
 
-Personal Arch Linux desktop configuration for Hyprland, Ghostty, Neovim, Starship, Waybar, Waypaper, Rofi, Zsh, GTK, VS Code, `btop`, `cliphist`, `hyprlock`, `swayidle`, and `keyd`.
+Personal Arch Linux desktop configuration for Hyprland, Ghostty, Neovim, Starship, Waybar, Waypaper, Rofi, Zsh, GTK, VS Code, `btop`, `cliphist`, `hypridle`, `hyprlock`, `snappy-switcher`, `satty`, and `keyd`.
 
 This repo is Arch-specific. It reflects the package names, filesystem layout, and desktop tooling used on the live Arch machine it configures.
 
@@ -45,11 +45,13 @@ Wallpaper selection uses `waypaper` as the browser/picker UI and `hyprpaper` as 
 
 ## Waybar
 
-- right side order is: grouped system status, power profile, battery, power
+- full-width top bar, not floating pills
+- center clock uses `Roboto`
+- right side order is: network, volume, tray, power profile, battery, power
 - `custom/power-profile` is the power mode control
-- click the profile pill to choose `performance`, `balanced`, or `power-saver`
-- scroll the profile pill to cycle modes
-- battery is status-only
+- click the profile icon to choose `performance`, `balanced`, or `power-saver`
+- scroll the profile icon to cycle modes
+- battery is icon-only and uses color for warning / critical / charging states
 - power opens the Rofi power menu
 
 ## Clipboard History
@@ -58,13 +60,41 @@ Wallpaper selection uses `waypaper` as the browser/picker UI and `hyprpaper` as 
 - `wl-paste --watch cliphist store` is used to feed it
 - `Super+Y` opens a Rofi-based clipboard picker
 
+## Window Switching
+
+- `snappy-switcher` is the active Alt-Tab replacement
+- the live setup is intentionally patched to use `Ctrl` release instead of upstream `Alt` release
+- Hyprland binds are:
+  - `Ctrl+Tab` -> next
+  - `Ctrl+Shift+Tab` -> previous
+- the patch is stored at `patches/snappy-switcher-ctrl-release.patch`
+- the packaged wrapper expects `/usr/local/bin/snappy-switcher`, so Hyprland starts it with:
+  - `env SNAPPY_BINARY=/usr/bin/snappy-switcher snappy-wrapper`
+- an AUR reinstall or upgrade will overwrite the local binary patch, so reapply the stored patch when updating the package
+
+Reapply flow after an upgrade:
+
+```bash
+yay -G snappy-switcher
+cd snappy-switcher
+patch -p1 < ~/dotfiles/patches/snappy-switcher-ctrl-release.patch
+makepkg -si
+```
+
 ## Locking And Idle
 
 - `Super+L` launches `hyprlock`
-- `swayidle` autostarts and currently:
+- `hypridle` autostarts and currently:
   - locks after 10 minutes
   - turns displays off after 15 minutes
   - locks before sleep
+
+## Screenshots
+
+- `Print` uses `slurp + grim + satty`
+- drag a region with `slurp`
+- annotate or save in `satty`
+- screenshots are saved under `~/Pictures/Screenshots/`
 
 ## Keyboard Mapping Rationale
 

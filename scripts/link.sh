@@ -16,6 +16,7 @@ mkdir -p \
   "${HOME}/.config/mako" \
   "${HOME}/.config/nvim" \
   "${HOME}/.config/rofi" \
+  "${HOME}/.config/snappy-switcher" \
   "${HOME}/.config/starship" \
   "${HOME}/.config/waybar" \
   "${HOME}/.config/waypaper"
@@ -42,13 +43,13 @@ ln -sfn "${REPO}/.config/ghostty/config.ghostty" "${HOME}/.config/ghostty/config
 ln -sfn "${REPO}/.config/gtk-3.0/settings.ini" "${HOME}/.config/gtk-3.0/settings.ini"
 ln -sfn "${REPO}/.config/gtk-4.0/settings.ini" "${HOME}/.config/gtk-4.0/settings.ini"
 ln -sfn "${REPO}/.config/hypr/hyprland.conf" "${HOME}/.config/hypr/hyprland.conf"
+ln -sfn "${REPO}/.config/hypr/hypridle.conf" "${HOME}/.config/hypr/hypridle.conf"
 ln -sfn "${REPO}/.config/hypr/hyprlock.conf" "${HOME}/.config/hypr/hyprlock.conf"
 ln -sfn "${REPO}/.config/hypr/clipboard-menu.sh" "${HOME}/.config/hypr/clipboard-menu.sh"
 ln -sfn "${REPO}/.config/hypr/power-menu.sh" "${HOME}/.config/hypr/power-menu.sh"
 ln -sfn "${REPO}/.config/hypr/hyprpaper.conf" "${HOME}/.config/hypr/hyprpaper.conf"
 ln -sfn "${REPO}/.config/hypr/sync-wallpaper-state.sh" "${HOME}/.config/hypr/sync-wallpaper-state.sh"
 ln -sfn "${REPO}/.config/hypr/start-clipboard.sh" "${HOME}/.config/hypr/start-clipboard.sh"
-ln -sfn "${REPO}/.config/hypr/start-idle.sh" "${HOME}/.config/hypr/start-idle.sh"
 ln -sfn "${REPO}/.config/hypr/start-wallpaper.sh" "${HOME}/.config/hypr/start-wallpaper.sh"
 ln -sfn "${REPO}/etc/keyd/default.conf" "${HOME}/.config/keyd/default.conf"
 ln -sfn "${REPO}/.config/mako/config" "${HOME}/.config/mako/config"
@@ -58,6 +59,7 @@ ln -sfn "${REPO}/.config/nvim/lazy-lock.json" "${HOME}/.config/nvim/lazy-lock.js
 ln -sfn "${REPO}/.config/nvim/lua" "${HOME}/.config/nvim/lua"
 ln -sfn "${REPO}/.config/rofi/config.rasi" "${HOME}/.config/rofi/config.rasi"
 ln -sfn "${REPO}/.config/rofi/theme.rasi" "${HOME}/.config/rofi/theme.rasi"
+ln -sfn "${REPO}/.config/snappy-switcher/config.ini" "${HOME}/.config/snappy-switcher/config.ini"
 ln -sfn "${REPO}/.config/starship/starship.toml" "${HOME}/.config/starship/starship.toml"
 ln -sfn "${REPO}/.config/starship/starship.toml" "${HOME}/.config/starship.toml"
 ln -sfn "${REPO}/.config/waybar/config.jsonc" "${HOME}/.config/waybar/config.jsonc"

@@ -20,23 +20,26 @@ This repository is the source of truth for the live desktop configuration on thi
 - `./.config/gtk-4.0/settings.ini`
 - `./.config/cliphist/config`
 - `./.config/hypr/hyprland.conf`
+- `./.config/hypr/hypridle.conf`
 - `./.config/hypr/hyprlock.conf`
 - `./.config/hypr/clipboard-menu.sh`
 - `./.config/hypr/power-menu.sh`
 - `./.config/hypr/hyprpaper.conf`
 - `./.config/hypr/start-clipboard.sh`
-- `./.config/hypr/start-idle.sh`
 - `./.config/hypr/start-wallpaper.sh`
 - `./.config/nvim/init.lua`
 - `./.config/nvim/lua/...`
 - `./.config/rofi/config.rasi`
 - `./.config/rofi/theme.rasi`
+- `./.config/snappy-switcher/config.ini`
 - `./.config/starship/starship.toml`
 - `./.config/waybar/config.jsonc`
 - `./.config/waybar/power-profile-*.sh`
+- `./.config/waybar/power-segment.sh`
 - `./.config/waybar/style.css`
 - `./.config/waypaper/config.ini`
 - `./etc/keyd/default.conf`
+- `./patches/snappy-switcher-ctrl-release.patch`
 
 ## Theme Rules
 
@@ -59,16 +62,21 @@ This repository is the source of truth for the live desktop configuration on thi
 - `Super+L` should lock the screen with `hyprlock`.
 - `Super+Y` should open the clipboard picker.
 - `Super+Shift+W` should launch `waypaper`.
+- `Print` should use the `slurp + grim + satty` flow.
+- `Ctrl+Tab` and `Ctrl+Shift+Tab` should drive `snappy-switcher`.
 
 ### Waybar
 
 - The bar should stay clean and minimal.
-- Right side order matters: grouped status, power profile, battery, then the power button at the far right.
+- It should remain a full-width translucent top bar, not separate floating pills.
+- Right side order matters: network, volume, tray, power profile, battery, then the power button at the far right.
 - The tray exists primarily to host Dropbox.
 - Avoid reintroducing `nm-applet` unless there is a specific reason.
-- Keep the dedicated power profile pill. It should stay icon-first and compact.
-- The profile pill should remain the place to switch between `performance`, `balanced`, and `power-saver`.
+- Keep the dedicated power profile control icon-first and compact.
+- The profile control should remain the place to switch between `performance`, `balanced`, and `power-saver`.
+- Battery is icon-only and should communicate state through icon choice and color, not percentage text.
 - The power button and `Super+M` should launch the Rofi power menu.
+- The center clock should stay on `Roboto`, not the general monospace bar font.
 
 ### Waypaper
 
@@ -89,11 +97,24 @@ This repository is the source of truth for the live desktop configuration on thi
 ### Locking And Idle
 
 - `hyprlock` is the lock screen.
-- `swayidle` is responsible for lock-on-idle and display power management.
+- `hypridle` is responsible for lock-on-idle and display power management.
 - The current target is:
   - lock after 10 minutes
   - DPMS off after 15 minutes
   - lock before sleep
+
+### Snappy Switcher
+
+- `snappy-switcher` is the active window switcher.
+- The live setup is intentionally patched so release-to-select is tied to `Ctrl`, not upstream `Alt`.
+- Keep the patch in `./patches/snappy-switcher-ctrl-release.patch`.
+- Hyprland must start the wrapper with `SNAPPY_BINARY=/usr/bin/snappy-switcher` because the packaged wrapper defaults to `/usr/local/bin/snappy-switcher`.
+- If the package is upgraded or reinstalled, assume the local binary patch is gone and needs to be reapplied.
+- Reapply with:
+  - `yay -G snappy-switcher`
+  - `cd snappy-switcher`
+  - `patch -p1 < ~/dotfiles/patches/snappy-switcher-ctrl-release.patch`
+  - `makepkg -si`
 
 ### Rofi
 
@@ -178,9 +199,11 @@ Basic verification after editing `keyd`:
 - Waybar: restart the process
 - Ghostty: prefer full restart for keybind changes
 - keyd: `sudo keyd reload`
+- snappy-switcher: `exec-once` does not rerun on `hyprctl reload`; restart the daemon manually or relog if needed
 
 ## Safety Notes
 
 - Do not remove the tray unless Dropbox has another StatusNotifier host.
 - Be cautious with global keyboard remaps. Small changes can break core interaction quickly.
 - If `keyd` becomes unusable, its panic sequence is `Backspace+Escape+Enter`.
+- A future `snappy-switcher` package upgrade will overwrite the local `Ctrl+Tab` binary patch unless it is rebuilt with `./patches/snappy-switcher-ctrl-release.patch`.
