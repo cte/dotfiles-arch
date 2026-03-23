@@ -38,15 +38,23 @@ Wallpaper selection uses `waypaper` as the browser/picker UI and `hyprpaper` as 
 
 - `waypaper` is configured with `backend = hyprpaper`
 - selecting a wallpaper talks directly to `hyprpaper`
-- `waypaper` runs a `post_command` that immediately syncs the chosen wallpaper back into `hyprpaper.conf`
+- `waypaper` runs a `post_command` that immediately syncs the chosen wallpaper into both `hyprpaper.conf` and `hyprlock.conf`
 - startup uses `hyprpaper` directly from the synced `hyprpaper.conf`, not `waypaper --restore`
 - `hyprpaper.conf` must include `ipc = on`
-- `hyprpaper.conf` remains the fallback path if `waypaper` is unavailable
+- the live wallpaper chooser is the source of truth, and the repo-managed configs are updated to match it
+
+## Icons And GTK
+
+- GTK icon theme: `Papirus-Dark`
+- `Papirus-Dark` is set in both GTK config files and in live GNOME/Cinnamon desktop settings
+- Rofi icons are enabled and use `Papirus-Dark`
+- `snappy-switcher` is configured to use `Papirus-Dark`
+- Reversal was tried and removed; do not reinstall it unless there is a specific reason
 
 ## Waybar
 
 - full-width top bar, not floating pills
-- center clock uses `Roboto`
+- center clock uses `Geist`
 - right side order is: network, volume, tray, power profile, battery, power
 - `custom/power-profile` is the power mode control
 - click the profile icon to choose `performance`, `balanced`, or `power-saver`
@@ -88,6 +96,13 @@ makepkg -si
   - locks after 10 minutes
   - turns displays off after 15 minutes
   - locks before sleep
+- `hyprlock` uses native fingerprint auth
+- the lockscreen is a bottom-anchored centered stack with:
+  - time
+  - date
+  - input field
+  - fingerprint prompt
+- `hyprlock` wallpaper is kept in sync with the main Hyprland wallpaper
 
 ## Screenshots
 

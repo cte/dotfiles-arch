@@ -1,12 +1,12 @@
 configuration {
     modi: "drun,run,window";
-    show-icons: false;
+    show-icons: true;
     display-drun: "app";
     display-run: "run";
     display-window: "win";
     drun-display-format: "{name}";
     window-format: "{w}{t}";
-    icon-theme: "Adwaita";
+    icon-theme: "Papirus-Dark";
     font: "GeistMono Nerd Font Mono 10";
 }
 

@@ -86,8 +86,8 @@ listview {
 
 element {
     enabled: true;
-    spacing: 0.5em;
-    padding: 0.5em 0.8em 0.5em 0.95em;
+    spacing: 0.65em;
+    padding: 0.5em 0.8em 0.5em 0.85em;
     cursor: pointer;
     border: 0px;
     border-radius: 12px;
@@ -114,8 +114,8 @@ element selected.urgent {
 }
 
 element-icon {
-    enabled: false;
-    size: 0em;
+    enabled: true;
+    size: 1.15em;
     cursor: inherit;
     background-color: transparent;
     text-color: inherit;

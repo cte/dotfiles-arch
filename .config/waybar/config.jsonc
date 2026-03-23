@@ -8,7 +8,7 @@
   "margin-right": 0,
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["network", "pulseaudio", "tray", "custom/power-profile", "custom/battery-icon", "custom/power"],
+  "modules-right": ["network", "bluetooth", "pulseaudio", "tray", "custom/power-profile", "custom/battery-icon", "custom/power"],
 
   "hyprland/workspaces": {
     "format": "{name}",
@@ -26,7 +26,20 @@
     "format-ethernet": "<span font_desc='Font Awesome 7 Free Solid 10'></span>",
     "format-disconnected": "<span font_desc='Font Awesome 7 Free Solid 10'></span>",
     "tooltip-format": "{ifname} via {gwaddr}",
-    "on-click": "/usr/bin/bash -lc '/usr/bin/ghostty -e /usr/bin/nmtui'"
+    "on-click": "/usr/bin/nm-connection-editor"
+  },
+
+  "bluetooth": {
+    "format-on": "<span font_desc='Font Awesome 7 Free Solid 10'></span>",
+    "format-connected": "<span font_desc='Font Awesome 7 Free Solid 10'></span>",
+    "format-disabled": "<span font_desc='Font Awesome 7 Free Solid 10'></span>",
+    "format-off": "<span font_desc='Font Awesome 7 Free Solid 10'></span>",
+    "format-no-controller": "",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-on": "{controller_alias}\t{controller_address}\n\nBluetooth on",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "on-click": "/usr/bin/blueman-manager"
   },
 
   "pulseaudio": {

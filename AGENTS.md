@@ -22,10 +22,12 @@ This repository is the source of truth for the live desktop configuration on thi
 - `./.config/hypr/hyprland.conf`
 - `./.config/hypr/hypridle.conf`
 - `./.config/hypr/hyprlock.conf`
+- `./.config/hypr/mocha.conf`
 - `./.config/hypr/clipboard-menu.sh`
 - `./.config/hypr/power-menu.sh`
 - `./.config/hypr/hyprpaper.conf`
 - `./.config/hypr/start-clipboard.sh`
+- `./.config/hypr/sync-wallpaper-state.sh`
 - `./.config/hypr/start-wallpaper.sh`
 - `./.config/nvim/init.lua`
 - `./.config/nvim/lua/...`
@@ -57,7 +59,7 @@ This repository is the source of truth for the live desktop configuration on thi
 - Keep the layout minimal.
 - Focused borders should stay subtle and Catppuccin-toned.
 - Inactive windows are intentionally translucent and blurred.
-- `Super+R` should launch `rofi`.
+- `Super+Space` should launch `rofi`.
 - `Super+E` should launch `nemo`.
 - `Super+L` should lock the screen with `hyprlock`.
 - `Super+Y` should open the clipboard picker.
@@ -76,7 +78,7 @@ This repository is the source of truth for the live desktop configuration on thi
 - The profile control should remain the place to switch between `performance`, `balanced`, and `power-saver`.
 - Battery is icon-only and should communicate state through icon choice and color, not percentage text.
 - The power button and `Super+M` should launch the Rofi power menu.
-- The center clock should stay on `Roboto`, not the general monospace bar font.
+- The center clock should stay on `Geist`, not the general monospace bar font.
 
 ### Waypaper
 
@@ -84,9 +86,20 @@ This repository is the source of truth for the live desktop configuration on thi
 - It should use `hyprpaper` as the backend.
 - `hyprpaper.conf` must keep `ipc = on` so Waypaper can talk to it.
 - The default wallpaper folder should remain `/home/cte/Dropbox/Personal/Backgrounds`.
-- Waypaper should immediately sync the selected wallpaper back into `hyprpaper.conf` via the repo-managed `post_command`.
+- Waypaper should immediately sync the selected wallpaper back into both `hyprpaper.conf` and `hyprlock.conf` via the repo-managed `post_command`.
 - Startup should use `hyprpaper` directly from the synced `hyprpaper.conf`, not `waypaper --restore`.
+- The sync helper must resolve symlink targets instead of replacing live symlinks with regular files.
 - The static `hyprpaper.conf` remains the startup source of truth and fallback path if `waypaper` is unavailable.
+
+### Icons
+
+- `Papirus-Dark` is the active icon theme.
+- It should be applied consistently across:
+  - GTK
+  - Nemo
+  - Rofi
+  - `snappy-switcher`
+- Reversal was removed after poor GTK/Nemo coverage and a broken upstream `-b` install path.
 
 ### Clipboard
 
@@ -98,6 +111,13 @@ This repository is the source of truth for the live desktop configuration on thi
 
 - `hyprlock` is the lock screen.
 - `hypridle` is responsible for lock-on-idle and display power management.
+- `hyprlock` should stay on the bottom-anchored centered-stack layout.
+- The lockscreen stack should remain simple:
+  - time
+  - date
+  - input field
+  - fingerprint prompt
+- Avoid ad hoc helper labels and top-right/center-anchor mixing. That made the config fragile and caused real breakage earlier.
 - The current target is:
   - lock after 10 minutes
   - DPMS off after 15 minutes
@@ -107,6 +127,7 @@ This repository is the source of truth for the live desktop configuration on thi
 
 - `snappy-switcher` is the active window switcher.
 - The live setup is intentionally patched so release-to-select is tied to `Ctrl`, not upstream `Alt`.
+- It should use the `Papirus-Dark` icon theme.
 - Keep the patch in `./patches/snappy-switcher-ctrl-release.patch`.
 - Hyprland must start the wrapper with `SNAPPY_BINARY=/usr/bin/snappy-switcher` because the packaged wrapper defaults to `/usr/local/bin/snappy-switcher`.
 - If the package is upgraded or reinstalled, assume the local binary patch is gone and needs to be reapplied.
@@ -120,7 +141,7 @@ This repository is the source of truth for the live desktop configuration on thi
 
 - Keep it single-panel and minimal.
 - No left-side image pane.
-- No icons in the application list.
+- Icons are enabled and should use `Papirus-Dark`.
 - Keep the Catppuccin Mocha palette and the fake gradient frame.
 - Hide unwanted launcher items with local desktop-entry overrides in `~/.local/share/applications`, not with brittle Rofi-side hacks.
 
